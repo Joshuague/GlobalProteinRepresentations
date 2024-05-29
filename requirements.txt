@@ -1,0 +1,13 @@
+torch
+torchvision
+jupyter
+numpy
+pathlib
+biopython
+pandas
+matplotlib
+umap-learn
+plotly
+h5py
+transformers
+PyQt5
