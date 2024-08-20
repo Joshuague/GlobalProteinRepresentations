@@ -36,11 +36,10 @@ class ContrastiveLearningModel(nn.Module):
         return self.encoder(x)
 
 
-"""My implementation of the loss proposed in: https://arxiv.org/abs/2104.08821 paper"""
+"""My implementation of the loss proposed in: https://arxiv.org/abs/2104.08821 paper. Doing this in a vectorized manner instead of looping speeds it up quite a bit,
+but makes it numerically unstable for low temperatures ~ < 0.01"""
 def nt_xent_loss(emb, z_emb, temp=0.5):
     """
-    Compute the normalized temperature-scaled cross entropy loss.
-
     Parameters:
     emb (torch.Tensor): Tensor of embeddings (batch_size x embedding_dim)
     z_emb (torch.Tensor): Tensor of corresponding embeddings (batch_size x embedding_dim)
