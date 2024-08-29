@@ -4,14 +4,14 @@ A quick summary of the work i did during my Fortgeschrittenen-Praktikum at the R
 
 The different datasets used to compare the embeddings on per protein prediction tasks were: <br />
 
-**Meltome**: The mixed split which can be found at: https://github.com/J-SNACKKB/FLIP/tree/main/splits/meltome <br />
+**Meltome**: The mixed split which can be found at: [Meltome data](https://github.com/J-SNACKKB/FLIP/tree/main/splits/meltome) <br />
 
-**Stability**: LMDB datasets provided in: https://github.com/songlab-cal/tape?tab=readme-ov-file#lmdb-data <br /> 
+**Stability**: LMDB datasets provided in: [Stability data](https://github.com/songlab-cal/tape?tab=readme-ov-file#lmdb-data) <br /> 
 
-**Localization**: The original dataset is the five split DeepLoc 2.0 data, found on their page: https://services.healthtech.dtu.dk/services/DeepLoc-2.0/ 
+**Localization**: The original dataset is the five split DeepLoc 2.0 data, found on their page: [DeepLoc 2.0 data](https://services.healthtech.dtu.dk/services/DeepLoc-2.0/) 
               Of that dataset I used the first four splits for training and the fifth for validation. As the test set, I use the setHard data
-              proposed here: https://github.com/HannesStark/protein-localization/tree/master/data_files. The Localization data was also processed by me to be in the same format
-              as the Meltome dataset. <br />
+              proposed here: [setHard data](https://github.com/HannesStark/protein-localization/tree/master/data_files). The Localization data was also processed by me to be in the same format
+              as the Meltome dataset (See utilities.ipynb). <br />
 
 
 
