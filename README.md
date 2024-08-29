@@ -13,6 +13,9 @@ The different datasets used to compare the embeddings on per protein prediction 
               proposed here: [setHard data](https://github.com/HannesStark/protein-localization/tree/master/data_files). The Localization data was also processed by me to be in the same format
               as the Meltome dataset (See utilities.ipynb). <br />
 
+### Creation of new Embeddings
+
+To create the new fixed size embeddings, I input the per amino acid embeddings to the decoder trained using the models/la_embedder.py script and appended them to the mean embeddings. Excact code to go from ProtT5 per residue embeddings to my new per protein embeddings can be found in the utilites notebook. 
 
 
 ### Results and Comparison to State-of-the-Art Fine-Tuning Method: LoRA
