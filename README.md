@@ -2,6 +2,8 @@
 
 A quick summary of the work i did during my Fortgeschrittenen-Praktikum at the RostLab. The Model folder contains the code to train the light attention (LA) decoder, the contrastive LoRA model and the MLP used for the downstream prediction tasks utilizing the precomputed embeddings. The decoder was trained on a 50 percent redundancy reduced SwissProt, and the contrastive LoRA model was sadly not trained at all. <br />
 
+### Datasets
+
 The different datasets used to compare the embeddings on per protein prediction tasks were: <br />
 
 **Meltome**: The mixed split which can be found at: [Meltome data](https://github.com/J-SNACKKB/FLIP/tree/main/splits/meltome) <br />
