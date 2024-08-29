@@ -1,6 +1,6 @@
 # GlobalProteinRepresentations
 
-A quick summary of the work i did during my Fortgeschrittenen-Praktikum at the RostLab. The Model folder contains the code to train the light attention decoder, the contrastive LoRA model and the MLP used for the downstream prediction tasks utilizing the precomputed embeddings. The decoder was trained on a 50 percent redundancy reduced SwissProt, and the contrastive LoRA model was sadly not trained at all. <br />
+A quick summary of the work i did during my Fortgeschrittenen-Praktikum at the RostLab. The Model folder contains the code to train the light attention (LA) decoder, the contrastive LoRA model and the MLP used for the downstream prediction tasks utilizing the precomputed embeddings. The decoder was trained on a 50 percent redundancy reduced SwissProt, and the contrastive LoRA model was sadly not trained at all. <br />
 
 The different datasets used to compare the embeddings on per protein prediction tasks were: <br />
 
@@ -15,12 +15,21 @@ The different datasets used to compare the embeddings on per protein prediction 
 
 ### Creation of new Embeddings
 
-To create the new fixed size embeddings, I input the per amino acid embeddings to the decoder trained using the models/la_embedder.py script and appended them to the mean embeddings. Excact code to go from ProtT5 per residue embeddings to my new per protein embeddings can be found in the utilites notebook. 
+There are three different models in the "Models" directory: the LA decoder, a contrastive LA pooler, and a contrastive LoRA model. The LA model is similar to the architecture proposed in the 2021 paper [**"Light Attention Predicts Protein Location from the Language of Life"**](https://www.biorxiv.org/content/10.1101/2021.04.25.441334v1) by Hannes Stärk, Christian Dallago, Michael Heinzinger, and Burkhard Rost. While the contrastive LA pooling failed, combining the LA pooler with a decoder-only transformer to translate per-protein embeddings back to the original sequence showed some promising results. The idea is that the resulting intermediate LA embeddings capture additional sequential context that is lost when using mean embeddings.
+
+To create the new fixed-size embeddings, I input the per-amino-acid embeddings into the trained model and extracted the output of the LA pooler as a new per protein embedding. This embedding is then appended the ProtT5 mean embeddings, to enhance the mean embeddings sequential information. The code for converting ProtT5 per-residue embeddings to the new per-protein embeddings can be found in the Utilities notebook.
+
+Contrastive learning is a widely used approach to create sentence embeddings from word embeddings in natural language modeling. I applied the loss function proposed in the 2021 paper [**"SimCSE: Simple Contrastive Learning of Sentence Embeddings"**](https://arxiv.org/abs/2104.08821) by Tianyu Gao, Xingcheng Yao, and Danqi Chen, using a LoRA-injected ProtT5 model to generate contrastively enhanced per-protein Mean+SD embeddings. 
+
+--To be continued--
+
+
+
 
 
 ### Results and Comparison to State-of-the-Art Fine-Tuning Method: LoRA
 
-In my work, I compared my results against the state-of-the-art fine-tuning method, LoRA. The numeric values used to simulate the data for the boxplots can be found in Table 6 of the supplementary material from the 2024 paper titled **"Fine-tuning Protein Language Models Boosts Predictions Across Diverse Tasks"** by Robert Schmirler, Michael Heinzinger, and Burkhard Rost.
+In my work, I compared my results against the state-of-the-art fine-tuning method, LoRA. The numeric values used to simulate the data for the boxplots can be found in Table 6 of the supplementary material from the 2024 paper titled [**"Fine-tuning Protein Language Models Boosts Predictions Across Diverse Tasks"**](https://www.nature.com/articles/s41467-024-51844-2) by Robert Schmirler, Michael Heinzinger, and Burkhard Rost.
 
 It is important to note that the results for localization cannot be directly compared. This is because I used the DeepLoc 2.0 dataset, while the referenced paper employed the original DeepLoc dataset for training. The test set is the same setHard dataset for both.
 
