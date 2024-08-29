@@ -19,7 +19,7 @@ The different datasets used to compare the embeddings on per protein prediction 
 
 In this study, I compared my results against the state-of-the-art fine-tuning method, LoRA. The simulation data used for the boxplots can be found in Table 6 of the supplementary material from the 2024 paper titled **"Fine-tuning Protein Language Models Boosts Predictions Across Diverse Tasks"** by Robert Schmirler, Michael Heinzinger, and Burkhard Rost.
 
-It is important to note that the results for localization cannot be directly compared. This is because I used the DeepLoc 2.0 dataset, while the referenced paper employed the original dataset in addition to the setHard dataset for testing.
+It is important to note that the results for localization cannot be directly compared. This is because I used the DeepLoc 2.0 dataset, while the referenced paper employed the original DeepLoc dataset for training. The test set is the same setHard dataset for both.
 
 Although my approach does not yet surpass the fine-tuned embeddings, I have demonstrated improvements over mean embeddings by incorporating additional information through LA embeddings. The hyperparameters for the Multi-Layer Perceptron (MLP) were optimized separately for both the mean embeddings and the concatenation of mean and LA embeddings using the [Optuna package](https://optuna.readthedocs.io/en/stable/).
 
