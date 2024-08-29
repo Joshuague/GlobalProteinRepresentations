@@ -1,6 +1,6 @@
 # GlobalProteinRepresentations
 
-A quick summary of the work i did during my Fortgeschrittenen-Praktikum at the RostLab. The Model folder contains the code to train the light attention (LA) decoder, the contrastive LoRA model and the MLP used for the downstream prediction tasks utilizing the precomputed embeddings. The decoder was trained on a 50 percent redundancy reduced SwissProt, and the contrastive LoRA model was sadly not trained at all. <br />
+A quick summary of the work i did during my Fortgeschrittenen-Praktikum at the RostLab. The Model folder contains the code to train the light attention (LA) decoder, the contrastive LoRA model and the MLP used for the downstream prediction tasks utilizing the precomputed embeddings.
 
 ### Datasets
 
@@ -17,7 +17,7 @@ The different datasets used to compare the embeddings on per protein prediction 
 
 ### Creation of new Embeddings
 
-There are three different models in the "Models" directory: the LA decoder, a contrastive LA pooler, and a contrastive LoRA model. The LA model is similar to the architecture proposed in the 2021 paper [**"Light Attention Predicts Protein Location from the Language of Life"**](https://www.biorxiv.org/content/10.1101/2021.04.25.441334v1) by Hannes Stärk, Christian Dallago, Michael Heinzinger, and Burkhard Rost. While the contrastive LA pooling failed, combining the LA pooler with a decoder-only transformer to translate per-protein embeddings back to the original sequence showed some promising results. The idea is that the resulting intermediate LA embeddings capture additional sequential context that is lost when using mean embeddings.
+There are three different models in the "Models" directory: the LA decoder, a contrastive LA pooler, and a contrastive LoRA model, all models were trained on a 50 percent redundancy reduced SwissProt. The LA model is similar to the architecture proposed in the 2021 paper [**"Light Attention Predicts Protein Location from the Language of Life"**](https://www.biorxiv.org/content/10.1101/2021.04.25.441334v1) by Hannes Stärk, Christian Dallago, Michael Heinzinger, and Burkhard Rost. While the contrastive LA pooling failed, combining the LA pooler with a decoder-only transformer to translate per-protein embeddings back to the original sequence showed some promising results. The idea is that the resulting intermediate LA embeddings capture additional sequential context that is lost when using mean embeddings.
 
 To create the new fixed-size embeddings, I input the per-amino-acid embeddings into the trained model and extracted the output of the LA pooler as a new per protein embedding. This embedding is then appended the ProtT5 mean embeddings, to enhance the mean embeddings sequential information. The code for converting ProtT5 per-residue embeddings to the new per-protein embeddings can be found in the Utilities notebook.
 
