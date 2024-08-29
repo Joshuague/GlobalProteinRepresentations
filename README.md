@@ -17,7 +17,7 @@ The different datasets used to compare the embeddings on per protein prediction 
 
 ### Results and Comparison to State-of-the-Art Fine-Tuning Method: LoRA
 
-In my work, I compared my results against the state-of-the-art fine-tuning method, LoRA. The simulation data used for the boxplots can be found in Table 6 of the supplementary material from the 2024 paper titled **"Fine-tuning Protein Language Models Boosts Predictions Across Diverse Tasks"** by Robert Schmirler, Michael Heinzinger, and Burkhard Rost.
+In my work, I compared my results against the state-of-the-art fine-tuning method, LoRA. The numeric values used to simulate the data for the boxplots can be found in Table 6 of the supplementary material from the 2024 paper titled **"Fine-tuning Protein Language Models Boosts Predictions Across Diverse Tasks"** by Robert Schmirler, Michael Heinzinger, and Burkhard Rost.
 
 It is important to note that the results for localization cannot be directly compared. This is because I used the DeepLoc 2.0 dataset, while the referenced paper employed the original DeepLoc dataset for training. The test set is the same setHard dataset for both.
 
