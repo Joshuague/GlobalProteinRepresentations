@@ -12,3 +12,6 @@ Localization: The original dataset is the five split DeepLoc 2.0 data, found on 
               Of that dataset I used the first four splits for training and the fifth for validation. As the test set, I use the setHard data
               proposed here: https://github.com/HannesStark/protein-localization/tree/master/data_files. The Localization data was also processed by me to be in the same format
               as the Meltome dataset.
+
+
+![Boxplots_summary](https://github.com/user-attachments/assets/528ac9f1-d305-43f9-8436-dd744526a986)
