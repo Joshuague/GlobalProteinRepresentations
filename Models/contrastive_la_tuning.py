@@ -10,7 +10,7 @@ import logging
 """This script was used to tune the la_transformer decoder on the contrastive loss. It didnt really work. This 
 script requires an embedding file path and weights for the Normi model from the la_transformer script. The default 
 parameters are not tuned but rather the hyperparameters for the LA model. The hyperparmeter tuning results were lost on the 
-cluster."""
+cluster. Just in here for completeness sake, this script is not mentioned in the read me as it didnt contribute to any of the results."""
 
 class EmbeddingDataset(Dataset):
     def __init__(self, embedding_file):
