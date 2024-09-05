@@ -37,5 +37,5 @@ It is important to note that the results for localization cannot be directly com
 
 Although my approach does not yet surpass the fine-tuned embeddings, I have demonstrated improvements over mean embeddings by incorporating additional information through LA embeddings or contrastive learning. The hyperparameters for the Multi-Layer Perceptron were optimized separately for each embedding dataset using the [Optuna package](https://optuna.readthedocs.io/en/stable/) and the boxplots were created using 10,000 bootstrapped values, with the value for the regression tasks (meltome and stability) being the spearman correlation and the value for the classification task (subcellular localization) being the accuracy. 
 
-![Boxplots Summary](https://github.com/user-attachments/assets/528ac9f1-d305-43f9-8436-dd744526a986)
+![Boxplots_summary](https://github.com/user-attachments/assets/e5328e33-7f36-4758-98f7-6db400546afb)
 
